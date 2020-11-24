@@ -71,7 +71,7 @@ class Pokemon_attribute(object):
 
 class Normal_attribute(Pokemon_attribute):
     def __init__(self):
-        super().__init__()
+        super(Normal_attribute, self).__init__()
         self.attack_2x = []
         self.attack_05x = ['Rock', 'Steel']
         self.attack_00x = ['Ghost']
@@ -82,7 +82,7 @@ class Normal_attribute(Pokemon_attribute):
 
 class Fly_attribute(Pokemon_attribute):
     def __init__(self):
-        super().__init__()
+        super(Fly_attribute, self).__init__()
         self.attack_2x = ['Bug', 'Fight', 'Grass']
         self.attack_05x = ['Electric', 'Rock', 'Steel']
         self.attack_00x = []
@@ -93,7 +93,7 @@ class Fly_attribute(Pokemon_attribute):
 
 class Fire_attribute(Pokemon_attribute):
     def __init__(self):
-        super().__init__()
+        super(Fire_attribute, self).__init__()
         self.attack_2x = ['Grass', 'Ice', 'Bug', 'Steel']
         self.attack_05x = ['Fire', 'Water', 'Rock', 'Dragon']
         self.attack_00x = []
@@ -104,7 +104,7 @@ class Fire_attribute(Pokemon_attribute):
 
 class Psychic_attribute(Pokemon_attribute):
     def __init__(self):
-        super().__init__()
+        super(Psychic_attribute, self).__init__()
         self.attack_2x = ['Poison', 'Fight']
         self.attack_05x = ['Psychic', 'Steel']
         self.attack_00x = ['Dark']
@@ -115,7 +115,7 @@ class Psychic_attribute(Pokemon_attribute):
 
 class Water_attribute(Pokemon_attribute):
     def __init__(self):
-        super().__init__()
+        super(Water_attribute, self).__init__()
         self.attack_2x = ['Ground', 'Fire', 'Rock']
         self.attack_05x = ['Water', 'Grass', 'Dragon']
         self.attack_00x = []
@@ -126,7 +126,7 @@ class Water_attribute(Pokemon_attribute):
 
 class Bug_attribute(Pokemon_attribute):
     def __init__(self):
-        super().__init__()
+        super(Bug_attribute, self).__init__()
         self.attack_2x = ['Grass', 'Psychic', 'Dark']
         self.attack_05x = ['Poison', 'Fly', 'Fight', 'Fire', 'Ghost', 'Steel', 'Fairy']
         self.attack_00x = []
@@ -137,7 +137,7 @@ class Bug_attribute(Pokemon_attribute):
 
 class Electric_attribute(Pokemon_attribute):
     def __init__(self):
-        super().__init__()
+        super(Electric_attribute, self).__init__()
         self.attack_2x = ['Fly', 'Water']
         self.attack_05x = ['Electric', 'Grass', 'Dragon']
         self.attack_00x = ['Ground']
@@ -148,7 +148,7 @@ class Electric_attribute(Pokemon_attribute):
 
 class Rock_attribute(Pokemon_attribute):
     def __init__(self):
-        super().__init__()
+        super(Rock_attribute, self).__init__()
         self.attack_2x = ['Bug', 'Fly', 'Fire', 'Ice']
         self.attack_05x = ['Ground', 'Fight', 'Steel']
         self.attack_00x = []
@@ -159,7 +159,7 @@ class Rock_attribute(Pokemon_attribute):
 
 class Grass_attribute(Pokemon_attribute):
     def __init__(self):
-        super().__init__()
+        super(Grass_attribute, self).__init__()
         self.attack_2x = ['Ground', 'Water', 'Rock']
         self.attack_05x = ['Bug', 'Poison', 'Fly', 'Fire', 'Grass', 'Dragon', 'Steel']
         self.attack_00x = []
@@ -171,29 +171,130 @@ class Grass_attribute(Pokemon_attribute):
 class Ghost_attribute(Pokemon_attribute):
     def __init__(self):
         super(Ghost_attribute, self).__init__()
-class pokemon(object):
-    def __init__(self, attribute):
-        self.attribute = attribute
+        self.attack_2x = ['Psychic', 'Ghost']
+        self.attack_05x = ['Dark']
+        self.attack_00x = ['Normal']
+        self.defense_2x = ['Dark', 'Ghost']
+        self.defense_05x = ['Bug', 'Poison']
+        self.defense_00x = ['Normal', 'Fight']
+    pass
 
+class Ice_attribute(Pokemon_attribute):
+    def __init__(self):
+        super(Ice_attribute, self).__init__()
+        self.attack_2x = ['Fly', 'Ground', 'Grass', 'Dragon']
+        self.attack_05x = ['Fire', 'Water', 'Ice', 'Steel']
+        self.attack_00x = []
+        self.defense_2x = ['Fight', 'Fire', 'Rock', 'Steel']
+        self.defense_05x = ['Ice']
+        self.defense_00x = []
+    pass
+
+class Dragon_attribute(Pokemon_attribute):
+    def __init__(self):
+        super(Dragon_attribute, self).__init__()
+        self.attack_2x = ['Dragon']
+        self.attack_05x = ['Steel']
+        self.attack_00x = ['Fairy']
+        self.defense_2x = ['Dragon', 'Ice', 'Fairy']
+        self.defense_05x = ['Fire', 'Water', 'Electric', 'Grass']
+        self.defense_00x = []
+    pass
+
+class Fight_attribute(Pokemon_attribute):
+    def __init__(self):
+        super(Fight_attribute, self).__init__()
+        self.attack_2x = ['Normal', 'Rock', 'Ice', 'Steel', 'Dark']
+        self.attack_05x = ['Bug', 'Poison', 'Fly', 'Psychic', 'Fairy']
+        self.attack_00x = ['Ghost']
+        self.defense_2x = ['Fly', 'Psychic']
+        self.defense_05x = ['Bug', 'Rock', 'Dark']
+        self.defense_00x = []
+    pass
+
+class Dark_attribute(Pokemon_attribute):
+    def __init__(self):
+        super(Dark_attribute, self).__init__()
+        self.attack_2x = ['Psychic', 'Ghost']
+        self.attack_05x = ['Fight', 'Dark', 'Fairy']
+        self.attack_00x = []
+        self.defense_2x = ['Bug', 'Fight', 'Fairy']
+        self.defense_05x = ['Ghost', 'Dark']
+        self.defense_00x = ['Psychic']
+    pass
+
+class Poison_attribute(Pokemon_attribute):
+    def __init__(self):
+        super(Poison_attribute, self).__init__()
+        self.attack_2x = ['Grass', 'Fairy']
+        self.attack_05x = ['Poison', 'Ground', 'Rock', 'Ghost']
+        self.attack_00x = ['Steel']
+        self.defense_2x = ['Ground', 'Psychic']
+        self.defense_05x = ['Bug', 'Poison', 'Fight', 'Grass', 'Fairy']
+        self.defense_00x = []
+    pass
+
+class Steel_attribute(Pokemon_attribute):
+    def __init__(self):
+        super(Steel_attribute, self).__init__()
+        self.attack_2x = ['Ice', 'Rock', 'Fairy']
+        self.attack_05x = ['Water', 'Fire', 'Electric', 'Steel']
+        self.attack_00x = []
+        self.defense_2x = ['Ground', 'Fight', 'Fire']
+        self.defense_05x = ['Normal', 'Bug', 'Fly', 'Grass', 'Ice', 'Rock', 'Psychic', 'Dragon', 'Steel', 'Fairy']
+        self.defense_00x = ['Poison']
+    pass
+
+class Ground_attribute(Pokemon_attribute):
+    def __init__(self):
+        super(Ground_attribute, self).__init__()
+        self.attack_2x = ['Poison', 'Fire', 'Electric', 'Rock', 'Steel']
+        self.attack_05x = ['Bug', 'Grass']
+        self.attack_00x = ['Fly']
+        self.defense_2x = ['Water', 'Grass', 'Ice']
+        self.defense_05x = ['Poison', 'Rock']
+        self.defense_00x = ['Electric']
+    pass
+
+class Fairy_attribute(Pokemon_attribute):
+    def __init__(self):
+        super(Fairy_attribute, self).__init__()
+        self.attack_2x = ['Fight', 'Dragon', 'Dark']
+        self.attack_05x = ['Poison', 'Fire', 'Steel']
+        self.attack_00x = []
+        self.defense_2x = ['Poison', 'Steel']
+        self.defense_05x = ['Bug', 'Fight', 'Dark']
+        self.defense_00x = ['Dragon']
+    pass
+
+
+
+
+class pokemon(object):
+    def __init__(self, attribute, egg_group):
+        self.attribute = attribute
+        self.egg_group = egg_group
+        self.attribute_ture = Pokemon_attribute()
+    def attribute_phase(self):
+        if len(self.attribute)==1:
+            print('This is a %s type Pokemon'%self.attribute)
+            self.attribute_ture = Pokemon_attribute()
+        elif len(self.attribute)!=1:
+            print('This is a %s type Pokemon'%self.attribute)
     # def phase(self, attack_attribute):
     #     for i
     pass
 
 # atk, defen = phase_relationship('aba')
-a = Normal_attribute()
+a = Water_attribute()
 print(a.attack_phase)
 a.phase_edit()
 print(a.attack_phase)
 a.attack_phase_show()
 
+b = pokemon('Normal', 'fish')
+b.attribute_ture.attack_phase_show()
 
-# a = Pokemon_attribute()
-# print(a.attack_phase)
-# a.phase_edit()
-# print(a.attack_phase)
-# print(a.defense_phase)
-# a.attack_phase_show()
-# print()
 
 
 
