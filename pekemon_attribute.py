@@ -1,27 +1,5 @@
 # coding=UTF-8
 '''A small test to calculate Pokemon attributes phase'''
-def phase_relationship(attribute):
-    attack_phase = {'Normal':1, 'Fly':1, 'Fire':1, 'Psychic':1, 'Water':1, 'Bug':1, 'Electric':1, 'Rock':1,
-                    'Grass':1, 'Ghost':1, 'Ice':1, 'Dragon':1, 'Fight':1, 'Dark':1, 'Poison':1, 'Steel':1, 'Ground':1, 'Fairy':1}
-    defence_phase = {'Normal':1, 'Fly':1, 'Fire':1, 'Psychic':1, 'Water':1, 'Bug':1, 'Electric':1, 'Rock':1,
-                    'Grass':1, 'Ghost':1, 'Ice':1, 'Dragon':1, 'Fight':1, 'Dark':1, 'Poison':1, 'Steel':1, 'Ground':1, 'Fairy':1}
-    if attribute == 'Normal':
-        attack_phase = {'Normal': 1, 'Fly': 1, 'Fire': 1, 'Psychic': 1, 'Water': 1, 'Bug': 1, 'Electric': 1,
-                        'Rock': 0.5, 'Grass': 1, 'Ghost': 0, 'Ice': 1, 'Dragon': 1, 'Fight': 1, 'Dark': 1, 'Poison': 1,
-                        'Steel': 0.5, 'Ground': 1, 'Fairy': 1}
-        defence_phase = {'Normal': 1, 'Fly': 1, 'Fire': 1, 'Psychic': 1, 'Water': 1, 'Bug': 1, 'Electric': 1,
-                         'Rock': 0.5, 'Grass': 1, 'Ghost': 0, 'Ice': 1, 'Dragon': 1, 'Fight': 1, 'Dark': 1, 'Poison': 1,
-                         'Steel': 0.5, 'Ground': 1, 'Fairy': 1}
-    elif attribute == 'Fly':
-        attack_phase = {'Normal': 1, 'Fly': 1, 'Fire': 1, 'Psychic': 1, 'Water': 1, 'Bug': 1, 'Electric': 1,
-                        'Rock': 0.5, 'Grass': 1, 'Ghost': 0, 'Ice': 1, 'Dragon': 1, 'Fight': 1, 'Dark': 1, 'Poison': 1,
-                        'Steel': 0.5, 'Ground': 1, 'Fairy': 1}
-        defence_phase = {'Normal': 1, 'Fly': 1, 'Fire': 1, 'Psychic': 1, 'Water': 1, 'Bug': 1, 'Electric': 1,
-                        'Rock': 0.5, 'Grass': 1, 'Ghost': 0, 'Ice': 1, 'Dragon': 1, 'Fight': 1, 'Dark': 1, 'Poison': 1,
-                        'Steel': 0.5, 'Ground': 1, 'Fairy': 1}
-
-    return attack_phase, defence_phase
-
 class Pokemon_attribute(object):
     def __init__(self):
         self.attack_phase = {'Normal': 1, 'Fly': 1, 'Fire': 1, 'Psychic': 1, 'Water': 1, 'Bug': 1, 'Electric': 1,
