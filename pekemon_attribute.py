@@ -1,11 +1,5 @@
 # coding=UTF-8
-import numpy as np
-from PIL import Image
-import matplotlib.pyplot as plt
-from os import listdir
-import random
-from os.path import isfile, join, getsize
-'''this function is made to get a Two-dimensional dimensions with mirrored edges'''
+'''A small test to calculate Pokemon attributes phase'''
 def phase_relationship(attribute):
     attack_phase = {'Normal':1, 'Fly':1, 'Fire':1, 'Psychic':1, 'Water':1, 'Bug':1, 'Electric':1, 'Rock':1,
                     'Grass':1, 'Ghost':1, 'Ice':1, 'Dragon':1, 'Fight':1, 'Dark':1, 'Poison':1, 'Steel':1, 'Ground':1, 'Fairy':1}
@@ -49,9 +43,9 @@ class Pokemon_attribute(object):
         print('This attribute will make zero damage to these attribute(s): ', self.attack_00x)
         pass
     def defense_phase_show(self):
-        print('This attribute will take double damage to these attribute(s): ', self.defense_2x)
-        print('This attribute will take half damage to these attribute(s): ', self.defense_05x)
-        print('This attribute will take zero damage to these attribute(s): ', self.defense_00x)
+        print('This attribute will take double damage from these attribute(s): ', self.defense_2x)
+        print('This attribute will take half damage from these attribute(s): ', self.defense_05x)
+        print('This attribute will immunity damage from these attribute(s): ', self.defense_00x)
         pass
     def phase_edit(self):
         for i in self.attack_2x:
@@ -268,62 +262,100 @@ class Fairy_attribute(Pokemon_attribute):
     pass
 
 
+class Compound_attribute(Pokemon_attribute):
+    def __init__(self):
+        super(Compound_attribute, self).__init__()
+        self.defense_4x_more = []
+        self.defense_4x = []
+        self.defense_025x = []
+        self.defense_025x_less = []
+    def defense_phase_show(self):
+        print('This attribute will take more than quadruple damage from these attribute(s): ', self.defense_4x_more)
+        print('This attribute will take quadruple damage from these attribute(s): ', self.defense_4x)
+        print('This attribute will take double damage from these attribute(s): ', self.defense_2x)
+        print('This attribute will take half damage from these attribute(s): ', self.defense_05x)
+        print('This attribute will take quarter damage from these attribute(s): ', self.defense_025x)
+        print('This attribute will take less than quarter damage from these attribute(s): ', self.defense_025x_less)
+        print('This attribute will immunity damage from these attribute(s): ', self.defense_00x)
+        pass
+    pass
 
 
 class pokemon(object):
     def __init__(self, attribute, egg_group):
         self.attribute = attribute
         self.egg_group = egg_group
-        self.attribute_ture = Pokemon_attribute()
+        self.attribute_ture = []
+        self.attribute_group = [Normal_attribute(), Fly_attribute(), Fire_attribute(), Psychic_attribute(), Water_attribute(),
+                                Bug_attribute(), Electric_attribute(), Rock_attribute(), Grass_attribute(), Ghost_attribute(),
+                                Ice_attribute(), Dragon_attribute(), Fight_attribute(), Dark_attribute(), Poison_attribute(),
+                                Steel_attribute(), Ground_attribute(), Fairy_attribute()]
+        self.edited_phase = Pokemon_attribute()
+        self.attribute_group_key = ['Normal', 'Fly', 'Fire', 'Psychic', 'Water', 'Bug', 'Electric', 'Rock', 'Grass',
+                                    'Ghost', 'Ice', 'Dragon', 'Fight', 'Dark', 'Poison', 'Steel', 'Ground', 'Fairy']
     def attribute_phase(self):
         if len(self.attribute)==1:
             print('This is a %s type Pokemon'%self.attribute)
-            self.attribute_ture = Pokemon_attribute()
+            for i in range(len(self.attribute_group)):
+                if self.attribute[0] == type(self.attribute_group[i]).__name__[0:len(self.attribute[0])]:
+                    self.attribute_ture.append(self.attribute_group[i])
+                    break
+            for i in self.attribute_group_key:
+                self.attribute_ture[0].phase_edit()
+                self.edited_phase.attack_phase[i] *= self.attribute_ture[0].attack_phase[i]
+                self.edited_phase.defense_phase[i] *= self.attribute_ture[0].defense_phase[i]
+            self.edited_phase.attack_2x = self.attribute_ture[0].attack_2x
+            self.edited_phase.attack_05x = self.attribute_ture[0].attack_05x
+            self.edited_phase.attack_00x = self.attribute_ture[0].attack_00x
+            self.edited_phase.defense_2x = self.attribute_ture[0].defense_2x
+            self.edited_phase.defense_05x = self.attribute_ture[0].defense_05x
+            self.edited_phase.defense_00x = self.attribute_ture[0].defense_00x
         elif len(self.attribute)!=1:
             print('This is a %s type Pokemon'%self.attribute)
-    # def phase(self, attack_attribute):
-    #     for i
+            for j in range(len(self.attribute)):
+                for i in range(len(self.attribute_group)):
+                    if self.attribute[j] == type(self.attribute_group[i]).__name__[0:len(self.attribute[j])]:
+                        self.attribute_ture.append(self.attribute_group[i])
+            for i in range(len(self.attribute_ture)):
+                self.attribute_ture[i].phase_edit()
+                for j in self.attribute_group_key:
+                    self.edited_phase.defense_phase[j] *= self.attribute_ture[i].defense_phase[j]
     pass
 
+def pokemon_defense_judge(pokemon):
+    pokemon.attribute_phase()
+    pokemon_defense_phase = pokemon.edited_phase.defense_phase
+    print(pokemon_defense_phase)
+    # judge = 0
+    # for i in pokemon_defense_phase.keys():
+    #     if pokemon_defense_phase[i] == 0:
+    #         judge += 6
+    #     elif po
+    return
 # atk, defen = phase_relationship('aba')
-a = Water_attribute()
-print(a.attack_phase)
-a.phase_edit()
-print(a.attack_phase)
-a.attack_phase_show()
+# a = Water_attribute()
+# print(a.attack_phase)
+# a.phase_edit()
+# print(a.attack_phase)
+# a.attack_phase_show()
 
-b = pokemon('Normal', 'fish')
-b.attribute_ture.attack_phase_show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+b = pokemon(['Normal', 'Fly', 'Fire', 'Psychic', 'Water', 'Bug', 'Electric', 'Rock',
+                                    'Ghost', 'Dragon', 'Fight', 'Dark', 'Poison', 'Steel', 'Ground', 'Fairy'], 'fish')
+# print(b.edited_phase.attack_phase.keys())
+pokemon_defense_judge(b)
+# print(type(b.attribute_group[0]).__name__)
+# b.attribute_phase()
+# print(b.edited_phase.attack_phase)
+# print(b.edited_phase.defense_phase)
+# b.edited_phase.attack_phase_show()
+# b.edited_phase.defense_phase_show()
+# print(len(b.attribute_ture), type(b.attribute_ture[1]))
+# print(b.edited_phase.defense_phase)
+# print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+# print(len(b.attribute_ture))
+# b.attribute_ture[0].attack_phase_show()
+# b.attribute_ture[0].phase_edit()
+# print(b.attribute_ture[0].attack_phase)
+# b.attribute_ture[1].attack_phase_show()
+# print(b.attribute_ture[1].attack_phase)
+# print(b.attribute_ture)
