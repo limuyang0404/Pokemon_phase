@@ -1,5 +1,7 @@
 # coding=UTF-8
 '''A small test to calculate Pokemon attributes phase'''
+
+
 class Pokemon_attribute(object):
     def __init__(self):
         self.attack_phase = {'Normal': 1, 'Fly': 1, 'Fire': 1, 'Psychic': 1, 'Water': 1, 'Bug': 1, 'Electric': 1,
@@ -58,7 +60,7 @@ class Fly_attribute(Pokemon_attribute):
         self.attack_2x = ['Bug', 'Fight', 'Grass']
         self.attack_05x = ['Electric', 'Rock', 'Steel']
         self.attack_00x = []
-        self.defense_2x = ['Electric', 'Rock', 'Steel']
+        self.defense_2x = ['Electric', 'Rock', 'Ice']
         self.defense_05x = ['Bug', 'Fight', 'Grass']
         self.defense_00x = ['Ground']
     pass
@@ -317,10 +319,11 @@ def pokemon_defense_judge(pokemon):
 # print(a.attack_phase)
 # a.attack_phase_show()
 
-b = pokemon(['Normal', 'Fly', 'Fire', 'Psychic', 'Water', 'Bug', 'Electric', 'Rock',
-                                    'Ghost', 'Dragon', 'Fight', 'Dark', 'Poison', 'Steel', 'Ground', 'Fairy'], 'fish')
+b = pokemon(['Fly', 'Ghost', 'Dark', 'Ground', 'Fairy', 'Steel'], 'fish')
+b.attribute_phase()
+print(b.edited_phase.defense_phase)
 # print(b.edited_phase.attack_phase.keys())
-pokemon_defense_judge(b)
+# pokemon_defense_judge(b)
 # print(type(b.attribute_group[0]).__name__)
 # b.attribute_phase()
 # print(b.edited_phase.attack_phase)
@@ -337,3 +340,39 @@ pokemon_defense_judge(b)
 # b.attribute_ture[1].attack_phase_show()
 # print(b.attribute_ture[1].attack_phase)
 # print(b.attribute_ture)
+
+#
+# c = 'abaabadaduoduo'
+# print(len(c))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
